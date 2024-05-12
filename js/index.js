@@ -2,21 +2,32 @@
 let accounts = {
     "1557958705": {
       balance: 100000,
-      pin: 1234 
+      pin: 1234  
     },
     "3045679097": {
       balance: 10000,
       pin: 4321
     }
   };
-  let airtimes = {
+
+let airtimes = {
     airtel: "08012345678",
     mtn: "08161234567",
     glo: "07051234567",
     mobile: "09012345678"
   };
 
-let userChoice = prompt("select an option:\n1. Transfer money\n2. Check Balance\n3. Withdraw\n4. Buy Airtime\n5. Others");
+let welcome = prompt("Welcome, Insert your card by pressing YES:\n1. YES\n2. Cancel");
+if (welcome === "1") {
+  atm();
+} else if (welcome === "2") {
+  alert("Thank you for banking with us, enjoy the rest of your day!!!");
+} else {
+  alert("Invalid Selection")
+}
+
+function atm() {
+  let userChoice = prompt("select an option:\n1. Transfer money\n2. Check Balance\n3. Withdraw\n4. Buy Airtime\n5. Others");
 if (userChoice === "1") {
   // Prompt for the account number to transfer from
   let accountFrom = prompt("Enter the account number to transfer from:");
@@ -66,6 +77,7 @@ if (userChoice === "1") {
 } else {
   alert("Invalid option selected");
 }
+}
 
 function airtime() {
   let accountFrom = prompt("Enter the account number to buy airtime from:");
@@ -75,19 +87,35 @@ function airtime() {
     // Prompt for the account number to transfer to
     let airtimeChoice = prompt("select the Network:\n1. Airtel\n2. MTN\n3. GLO\n4. 9mobile");
     if (airtimeChoice === "1") {
-      let airtelNumber = prompt("Enter the phone number:");
-      alert(`Transaction Successful.`);
+      let airtel = prompt("Enter the phone number:");
+      if (airtel === "08012345678") {
+        alert("Transaction Successful.");
+      } else {
+        alert("Invalid Number.");
+      }
     } else if (airtimeChoice === "2") {
-      let airtelNumber = prompt("Enter the phone number:");
-      alert(`Transaction Successful.`);
+      let mtn = prompt("Enter the phone number:");
+      if (mtn === "08161234567") {
+        alert("Transaction Successful.");
+      } else {
+        alert("Invalid Number.");
+      }
     } else if (airtimeChoice === "3") {
-      let airtelNumber = prompt("Enter the phone number:");
-      alert(`Transaction Successful.`);
+      let glo = prompt("Enter the phone number:");
+      if (glo === "07051234567") {
+        alert("Transaction Successful.");
+      } else {
+        alert("Invalid Number.");
+      }
     } else if (airtimeChoice === "4") {
-      let airtelNumber = prompt("Enter the phone number:");
-      alert(`Transaction Successful.`);
+      let mobile = prompt("Enter the phone number:");
+      if (mobile === "09012345678") {
+        alert("Transaction Successful.");
+      } else {
+        alert("Invalid Number.");
+      }
     } else {
-      alert('Invalid selection');
+      alert("Invalid selection");
     }
   } else {
       alert("Invalid account or PIN");
